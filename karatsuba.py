@@ -14,17 +14,17 @@ def alg_karatsuba(x, y):
         return x*y
     else:
         n = max(len(str(x)), len(str(y)))
-        nby2 = int(n / 2)
+        n_2 = int(n / 2)
         # convertir a entero la variable a
-        a = int(x / 10**(nby2))
-        b = x % 10**(nby2)
-        c = int(y / 10**(nby2))
-        d = y % 10**(nby2)
+        a = int(x / 10**(n_2))
+        b = x % 10**(n_2)
+        c = int(y / 10**(n_2))
+        d = y % 10**(n_2)
         ac = alg_karatsuba(a, c)
         bd = alg_karatsuba(b, d)
-        ad_plus_bc = alg_karatsuba(a+b, c+d) - ac - bd
-        prod = ac * 10**(2*nby2) + (ad_plus_bc * 10**nby2) + bd
-        return prod
+        ad_bc = alg_karatsuba(a+b, c+d) - ac - bd
+        res_final = ac * 10**(2*n_2) + (ad_bc * 10**n_2) + bd
+        return res_final
 
 
 n1 = int(input("teclea el primer valor:"))
